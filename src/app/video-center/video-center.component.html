@@ -1,8 +1,15 @@
 <div class="row">
     <div class="col-sm-9">
-        <video-detail></video-detail>
+        <!-- 18-5 selectedVideo 給 video-detail 顯示 -->
+        <video-detail *ngIf="selectedVideo" [video]="selectedVideo"></video-detail>
     </div>
     <div class="col-sm-3">
-        <video-list [videos]="videos"></video-list>
+        <!-- 18-3 從 video-list SelectVideo.emit(video) 送過來一個 video
+          captured the select video event
+          call the handlers onSelectVideo passing in $event
+        $event 是系統物件，這裡是指 selected video
+      Object { _id: "1", title: "Title 1", url: "url 1", description: "desc 1" }
+      -->
+        <video-list (SelectVideo)="onSelectVideo($event)" [videos]="videos"></video-list>
     </div>
 </div>

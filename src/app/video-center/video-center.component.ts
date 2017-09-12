@@ -1,3 +1,7 @@
+// VideoCenter -> input -> VideoList -> Display List
+// VideoList -> output -> VideoCenter -> Capture Selected Video
+//    透過(click)="onSelect(video)"
+// VideoCenter -> input -> VideoDetail -> Display Detail
 import { Component, OnInit } from '@angular/core';
 import { Video } from './../video';
 
@@ -16,9 +20,16 @@ export class VideoCenterComponent implements OnInit {
     { '_id': '4', 'title': 'Title 4', 'url': 'url 4', 'description': 'desc 4' }
   ];
 
+  selectedVideo: Video;
+
   constructor() { }
 
   ngOnInit() {
+  }
+  // 18-4
+  onSelectVideo(video: any) {
+    this.selectedVideo = video;
+    console.log(this.selectedVideo); // selectedVideo 給 video-detail 顯示出來
   }
 
 }
