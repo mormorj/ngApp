@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Video } from './../video';
 
 @Component({
@@ -6,10 +7,10 @@ import { Video } from './../video';
   selector: 'video-detail',
   templateUrl: './video-detail.component.html',
   styleUrls: ['./video-detail.component.css'],
-  inputs: ['video'] // 18-6 video-center 送過來的 selectedVideo
+   inputs: ['video'] // 18-6 video-center 送過來的 selectedVideo
 })
 export class VideoDetailComponent implements OnInit {
-
+  // @Input() video;
   constructor() { }
 
   ngOnInit() {
